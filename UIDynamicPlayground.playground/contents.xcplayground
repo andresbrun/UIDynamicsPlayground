@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='UIPushCollisionAndGravity'/>
+        <page name='UIAttachBehaviour'/>
+        <page name='UISnapBehaviour'/>
+        <page name='CBModal'/>
+    </pages>
+</playground>
