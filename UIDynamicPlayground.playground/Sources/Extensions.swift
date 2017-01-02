@@ -8,11 +8,28 @@ public extension UIView {
     public static func createDefaultView() -> UIView {
         let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 50.0))
         view.backgroundColor = .white
+        view.applyBorder()
+        return view
+    }
+    
+    public static func createDefaultRoundedView() -> UIView {
+        let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 25
+        view.applyBorder()
         return view
     }
 
     public static func createDefaultContainer() -> UIView {
         return UIView(frame: CGRect(x: 0.0, y: 0.0, width: 320.0, height: 480.0))
+    }
+    
+    public static func createWiderContainer() -> UIView {
+        return UIView(frame: CGRect(x: 0.0, y: 0.0, width: 480.0, height: 200.0))
+    }
+    
+    public static func createLargerContainer() -> UIView {
+        return UIView(frame: CGRect(x: 0.0, y: 0.0, width: 480.0, height: 480.0))
     }
     
     public static func createFakeModal() -> UIView {
@@ -52,6 +69,10 @@ public extension UIView {
     public func placeCenteredOnTop(of view: UIView, gap: CGFloat) {
         center = CGPoint(x: view.center.x,
                          y: view.center.y - view.bounds.midY - bounds.midY - gap)
+    }
+    
+    public var relativeCenter: CGPoint {
+        return CGPoint(x: bounds.midX, y: bounds.midY)
     }
 }
 

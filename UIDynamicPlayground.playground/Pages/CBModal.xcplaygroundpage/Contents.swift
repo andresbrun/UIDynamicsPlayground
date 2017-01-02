@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [UISnapBehaviour](@previous)
 import UIKit
 import PlaygroundSupport
 /*:
@@ -32,6 +32,3 @@ dynamicBehaviour.onDismiss = {
 
 
 PlaygroundPage.current.liveView = containerPush
-PlaygroundPage.current.needsIndefiniteExecution = true
-
-//: [Next](@next)

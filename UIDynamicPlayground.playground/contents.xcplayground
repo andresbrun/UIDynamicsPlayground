@@ -2,8 +2,9 @@
 <playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='UIPushCollisionAndGravity'/>
-        <page name='UIAttachBehaviour'/>
+        <page name='UIAttachmentBehavior'/>
         <page name='UISnapBehaviour'/>
+        <page name='UIFieldBehaviour'/>
         <page name='CBModal'/>
     </pages>
 </playground>

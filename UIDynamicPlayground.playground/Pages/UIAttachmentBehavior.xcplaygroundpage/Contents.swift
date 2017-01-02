@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [UIPushCollisionAndGravity](@previous)
 import UIKit
 import PlaygroundSupport
 /*:
@@ -8,7 +8,7 @@ import PlaygroundSupport
  ## Creating the views
  And adding them to the container
  */
-let containerView = UIView.createDefaultContainer()
+let containerView = UIView.createWiderContainer()
 let targetView = UIView.createDefaultView()
 let draggableView = UIView.createDefaultView()
 
@@ -16,9 +16,10 @@ containerView.addSubview(targetView)
 containerView.addSubview(draggableView)
 
 targetView.centerInSuperview()
-draggableView.placeCenteredOnTop(of: targetView, gap: 50)
+draggableView.placeCenteredOnTop(of: targetView, gap: 20)
 
 let animator = UIDynamicAnimator(referenceView: containerView)
+animator.setValue(true, forKey: "debugEnabled")
 
 /*:
  ### Default attachment
@@ -33,6 +34,7 @@ behaviour.length = 100
  It simulates like an stick along axisOfTranslation where the other view can move in. Stick will move if necessary rotating the attached view.
  */
 let slidingBehaviour = UIAttachmentBehavior.slidingAttachment(with: targetView, attachedTo: draggableView, attachmentAnchor: targetView.center, axisOfTranslation: CGVector(dx: 1, dy: 0))
+slidingBehaviour.frictionTorque
 animator.addBehavior(slidingBehaviour)
 
 /*:
@@ -70,4 +72,4 @@ let pan = UIPanGestureRecognizerHelper(view: draggableView, onChangePan: { (loca
 
 PlaygroundPage.current.liveView = containerView
 
-//: [Next](@next)
+//: [UISnapBehaviour](@next)

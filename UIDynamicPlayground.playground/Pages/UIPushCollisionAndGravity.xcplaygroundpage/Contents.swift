@@ -1,4 +1,3 @@
-//: [Previous](@previous)
 import UIKit
 import PlaygroundSupport
 /*:
@@ -72,4 +71,4 @@ let panShot = UIPanGestureRecognizerHelper(view: targetBall, onFinishPan: { (_, 
 })
 
 PlaygroundPage.current.liveView = containerView
-//: [Next](@next)
+//: [UIAttachmentBehavior](@next)

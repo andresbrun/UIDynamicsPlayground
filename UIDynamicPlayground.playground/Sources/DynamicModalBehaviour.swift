@@ -133,7 +133,7 @@ public class DynamicModalBehaviour: NSObject {
     }
     
     private func dismiss(view: UIView, withVelocity velocity: CGPoint, offset: UIOffset) {
-        let pushBehaviour = UIPushBehavior(items: [targetView], mode: .instantaneous)
+        let pushBehaviour = UIPushBehavior(items: [view], mode: .instantaneous)
         pushBehaviour.pushDirection = velocity.vector * Constants.pushForceRatio
         pushBehaviour.setTargetOffsetFromCenter(offset, for: view)
         animator?.addBehavior(pushBehaviour)

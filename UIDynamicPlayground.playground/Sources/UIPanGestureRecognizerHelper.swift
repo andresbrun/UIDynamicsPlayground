@@ -7,12 +7,17 @@ public class UIPanGestureRecognizerHelper: NSObject {
     var panGesture: UIPanGestureRecognizer!
     let onFinishPan: OnPanAction
     let onChangePan: OnPanAction
+    let onStartPan: OnPanAction
     let view: UIView
 
-    public init(view: UIView, onChangePan: @escaping OnPanAction = {_,_ in }, onFinishPan: @escaping OnPanAction = {_,_ in }) {
+    public init(view: UIView,
+                onStartPan: @escaping OnPanAction = {_,_ in },
+                onChangePan: @escaping OnPanAction = {_,_ in },
+                onFinishPan: @escaping OnPanAction = {_,_ in }) {
         self.view = view
         self.onChangePan = onChangePan
         self.onFinishPan = onFinishPan
+        self.onStartPan = onStartPan
         super.init()
 
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizer(panGesture:)))
@@ -25,6 +30,8 @@ public class UIPanGestureRecognizerHelper: NSObject {
         let location = panGesture.location(in: view.superview)
         
         switch panGesture.state {
+        case .began:
+            onStartPan(location, velocity)
         case .changed:
             onChangePan(location, velocity)
         case .cancelled, .ended:
