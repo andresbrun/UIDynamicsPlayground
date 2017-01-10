@@ -49,6 +49,7 @@ public class DynamicModalBehaviour: NSObject {
     
     private func createDynamicBehaviours() {
         animator = UIDynamicAnimator(referenceView: superview)
+        animator?.setValue(true, forKey: "debugEnabled")
 
         snapBehaviours = allViews.map { UISnapBehavior(item: $0, snapTo: $0.center) }
         gravityBehaviour = UIGravityBehavior(items: allViews)
