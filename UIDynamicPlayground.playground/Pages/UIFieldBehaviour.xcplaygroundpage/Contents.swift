@@ -3,6 +3,7 @@ import UIKit
 import PlaygroundSupport
 /*:
  # UIFieldBehaviour
+ Everything has been tested in Xcode 8.2.1
  */
 /*:
  ## Creating the view
@@ -37,6 +38,7 @@ animator.addBehavior(collision)
 
 /*:
  ### SpringField
+ It creates a field that is stronger as farther from the center the item is.
  */
 let springField = UIFieldBehavior.springField()
 springField.addItem(targetView)
@@ -67,17 +69,18 @@ turbulenceField.addItem(targetView)
 
 /*:
  ### Radial Gravity Field
+ It creates a field that is stronger as closer from the center the item is.
  */
 let radialGravityField = UIFieldBehavior.radialGravityField(position: containerView.relativeCenter)
 radialGravityField.region = UIRegion(radius: 400.0)
 radialGravityField.addItem(targetView)
 radialGravityField.strength = 1
 radialGravityField.minimumRadius = 50
-//animator.addBehavior(radialGravityField)
+animator.addBehavior(radialGravityField)
 
 /*:
  ### Vortex Field
-  NOTE: Not Working as expected in exact center.
+  NOTE: Not working as expected in exact center.
  */
 let vortexField = UIFieldBehavior.vortexField()
 //vortexField.region = UIRegion(radius: 200)
@@ -100,26 +103,25 @@ velocityField.position = containerView.relativeCenter
 
 /*:
  ### Electric Field
- NOTE: it doesn't work properly with exact center. Debug doesn't work.
+ NOTE: it doesn't work properly with exact center. Not shown in Debug mode.
  */
 let electric = UIFieldBehavior.electricField()
 electric.addItem(targetView)
-electric.strength = -10
+electric.strength = -10 // it is directly related with item charge
 electric.position = CGPoint(x: 241, y: 242)
 animator.addBehavior(electric)
 
 /*:
  ### Magnetic Field
- Note: it doesn't work properly with exact center. Debug doesn't work.
- So far I have seen it working just in convination with other behaviours
- like electric field.
+ Note: it doesn't work properly with exact center. Not shown in Debug mode.
+ So far I have seen it working just in combination with other behaviours
+ like electric field (electromagnetic field)
  */
 let magnetic = UIFieldBehavior.magneticField()
 magnetic.addItem(targetView)
-magnetic.strength = 10
+magnetic.strength = -10
 magnetic.position = CGPoint(x: 241, y: 242)
 //animator.addBehavior(magnetic)
-
 
 /*:
  ### Attachment behaviour to move the view
@@ -136,7 +138,6 @@ let pan = UIPanGestureRecognizerHelper(view: targetView,
 }, onFinishPan: {(_, velocity) in
     animator.removeBehavior(dragAttachmentBehaviour)
 })
-
 
 PlaygroundPage.current.liveView = containerView
 
