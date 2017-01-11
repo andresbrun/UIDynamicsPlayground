@@ -141,4 +141,4 @@ let pan = UIPanGestureRecognizerHelper(view: targetView,
 
 PlaygroundPage.current.liveView = containerView
 
-//: [Modal](@next)
+//: [Combining behaviors Modal](@next)

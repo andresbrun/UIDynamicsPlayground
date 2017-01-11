@@ -1,4 +1,4 @@
-//: [UISnapBehaviour](@previous)
+//: [UIFieldBehaviour](@previous)
 import UIKit
 import PlaygroundSupport
 /*:
